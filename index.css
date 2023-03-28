@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(51, 43, 71);
+    background-color: rgb(37, 32, 48); /*rgb(51, 43, 71)*/
 }
 #header{
     text-align: center;
@@ -42,8 +42,10 @@ p{
     font-size: 12;
 }
 .chart{
-    align-self: center;
     background-color: white;
     width: 600px;
     height: 300px;
+    display: flex;
+  justify-content: center;
+  align-items: center;
 }
