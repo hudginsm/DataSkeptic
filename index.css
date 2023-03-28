@@ -1,0 +1,23 @@
+body{
+    background-color: dimgray;
+}
+header{
+    text-align: center;
+    color: white;
+    font-size: 1536;
+}
+h1{
+    text-align: center;
+    color:cornflowerblue;
+    font-size: 768;
+}
+p{
+    text-align: center;
+    color: cornflowerblue;
+    font-size: 12;
+}
+.chart{
+    background-color: white;
+    width: 600px;
+    height: 300px;
+}

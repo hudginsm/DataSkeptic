@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <link rel='stylesheet' type='text/css' href='index.css'/>
         <title>
             The Data Skeptic
         </title>
@@ -13,13 +14,13 @@
         <p>
             This is just a test sample of what this site will be. I got his for a book I am working through called, "Data Visualization With JavaScript" form NoStarchPress.
         </p>
-        <div id="chart" style="width:600px;height:300px;"></div>
+        <div id="simple_bar" class="chart"></div>
         <script src="libs/Flotr2-master/flotr2.min.js"></script>
         <script>
             var wins = [[[2006,13],[2007,11],[2008,15],[2009,15],[2010,18],[2011,21],[2012,28]]];
             window.onload = function() {
                 Flotr.draw(
-                    document.getElementById("chart"),
+                    document.getElementById("simple_bar"),
                     wins,
                     {
                         bars: {
