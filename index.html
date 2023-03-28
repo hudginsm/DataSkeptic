@@ -1,1 +1,34 @@
-This is going to be a data inspired website
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            The Data Skeptic
+        </title>
+    </head>
+    <body>
+        <header>The Data Skeptic</header>
+        <br>
+        <h1>Test</h1>
+        <p>
+            This is just a test sample of what this site will be. I got his for a book I am working through called, "Data Visualization With JavaScript" form NoStarchPress.
+        </p>
+        <div id="chart" style="width:600px;height:300px;"></div>
+        <script scr="libs/flotr2.min.js"></script>
+        <script>
+            var wins = [[[2006,13],[2007,11],[2008,15],[2009,15],[2010,18],[2011,21],[2012,28]]]
+            window.onload = function() {
+                Floatr.draw(
+                    document.getElementById("chart"),
+                    wins,
+                    {
+                        bars: {
+                            show: true
+                        }
+                    }
+                )
+            }
+        </script>
+
+    </body>
+</html>
