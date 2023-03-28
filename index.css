@@ -1,10 +1,9 @@
 body{
-    background-color: rgb(10, 255, 2); /*rgb(51, 43, 71)*/
+    background-color: rgb(37, 32, 48); /*rgb(51, 43, 71)*/
 }
-#header{
+header{
     text-align: center;
     color: white;
-    font-size: 72;
 }
 h1{
     text-align: center;
