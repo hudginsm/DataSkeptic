@@ -1,6 +1,6 @@
 body{
     background-color: rgb(37, 32, 48); /*rgb(51, 43, 71)*/
-    margin: 0 auto;
+    
 }
 header{
     text-align: center;
@@ -46,7 +46,5 @@ p{
     height: 300px;
     margin: 50px;
     outline: solid 1px black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 0 auto;
 }
