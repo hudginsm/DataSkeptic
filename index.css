@@ -1,5 +1,6 @@
 body{
     background-color: rgb(37, 32, 48); /*rgb(51, 43, 71)*/
+    margin: 0 auto;
 }
 header{
     text-align: center;
