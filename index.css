@@ -41,10 +41,11 @@ p{
     font-size: 12;
 }
 .chart{
-    background-color: white;
-    width: 1200px;
+    width: 600px;
     height: 300px;
+    margin: 50px;
+    outline: solid 1px black;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
