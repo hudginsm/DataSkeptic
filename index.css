@@ -44,7 +44,5 @@ p{
 .chart{
     width: 600px;
     height: 300px;
-    margin: 50px;
-    outline: solid 1px black;
     margin: 0 auto;
 }
