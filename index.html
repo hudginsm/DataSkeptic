@@ -15,10 +15,13 @@
             This is just a test sample of what this site will be. I got this from a book I am working through called, "Data Visualization With JavaScript" form NoStarchPress.
         </p>
         <div id="simple_bar" class="chart" title="Data Visualization with JavaScript, Ch.1, Bar Chart"></div>
+        <div id="simple_bar2" class="chart" title="Data Visualization with JavaScript, Ch.1, Bar Chart"></div>
         <script src="libs/Flotr2-master/flotr2.min.js"></script>
         <script>
             var wins = [[[0,13],[1,11],[2,15],[3,15],[4,18],[5,21],[6,28]]];
+            var wins2 = [[[0,28]],[[1,28]],[[2,21]],[[3,20]],[[4,19]]];
             var years = [[0,"2006"],[1,"2007"],[2,"2008"],[3,"2009"],[4,"2010"],[5,"2011"],[6,"2012"]];
+            var teams = [[0,"MCI"],[1,"MUN"],[2,"ARS"],[3,"TOT"],[4,"NEW"]];
             window.onload = function() {
                 Flotr.draw(
                     document.getElementById("simple_bar"),
@@ -29,6 +32,18 @@
                         bars: {show: true, barWidth: 0.5, shadowSize: 0, fillOpacity: 1, lineWidth: 0},
                         yaxis: {min: 0, tickDecimals: 0},
                         xaxis: {ticks: years},
+                        grid: {horizontalLines: false, verticalLines: false}
+                    }
+                );
+                Flotr.draw(
+                    document.getElementById("simple_bar2"),
+                    wins2,
+                    {
+                        title: "Premier League Wins (2011-2012)",
+                        colors: ["#89AFD2","#1D1D1D","#DF021D","#0E204B","#E67840"],
+                        bars: {show: true, barWidth: 0.5, shadowSize: 0, fillOpacity: 1, lineWidth: 0},
+                        yaxis: {min: 0, tickDecimals: 0},
+                        xaxis: {ticks: teams},
                         grid: {horizontalLines: false, verticalLines: false}
                     }
                 );
