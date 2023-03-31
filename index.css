@@ -1,5 +1,6 @@
 body{
-    background-color: rgb(37, 32, 48); /*rgb(51, 43, 71)*/
+    background-color: rgb(37, 32, 48);
+    
 }
 header{
     text-align: center;
@@ -44,7 +45,5 @@ p{
     background-color: white;
     width: 600px;
     height: 300px;
-    display: flex;
-  justify-content: center;
-  align-items: center;
+    margin: 0 auto;
 }
