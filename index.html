@@ -10,13 +10,13 @@
     <body>
         <header>The Data Skeptic</header>
         <hr/>
-        <h1>Test</h1>
+        <h1>Data Visulaization With JavaScript</h1>
         <p>
-            This is just a test sample of what this site will be. I got this from a book I am working through called, "Data Visualization With JavaScript" by Stephen A. Thomas, form NoStarchPress.
+			I got these from a book I am working through called, "Data Visualization With JavaScript" by Stephen A. Thomas, form NoStarchPress.
         </p>
-		<h2>Charts form Chapter 1</h2>
+		<h2>Charts from Chapter 1</h2>
         <div id="simple_bar" class="chart" title="Data Visualization with JavaScript, Ch.1, Bar Chart"></div><br>
-        <div id="simple_bar2" class="chart" title="Data Visualization with JavaScript, Ch.1, Bar Chart"></div><br>
+        <div id="simple_bar2" class="chart" title="Data Visualization with JavaScript, Ch.1, Bar Chart 2"></div><br>
 		<div id="line" class="chart" title="Data Visualization with JavaScript, Ch.1, Line Chart"></div><br>
 		<div id="pie" class="chart" title="Data Visualization with JavaScript, Ch.1, Pie Chart"></div><br>
 		<div id="scatter" class="chart" title="Data Visualization with JavaScript, Ch.1, Scatter Chart"></div><br>
@@ -140,6 +140,10 @@
 				];
 			var zero = [];
 			for (var yr=1959; yr<2012; yr++) { zero.push( [yr, 0] ); };
+			var fractions = [
+				{data: [[0,22.4]], label: "Extreme Poverty"},
+				{data: [[1,77.6]]}
+			];
             window.onload = function() {
                 Flotr.draw(
                     document.getElementById("simple_bar"),
@@ -178,7 +182,18 @@
 						yaxis: {min: -0.15, max: 0.69, tickFormatter: function(val) { return val+" °C"; }},
 						y2axis: {min:300, max:400}
 					}
-				);       
+				);
+				Flotr.draw(
+					document.getElementById("pie"),
+					fractions,
+					{
+						title: "How Much of the World Lives on $1.25/Day?",
+						pie: {show: true},
+						yaxis: {showLabels: false},
+						xaxis: {showLabels: false},
+						grid: {horizontalLines: false, verticalLines: false}
+					}
+				);
 			};
 
         </script>
