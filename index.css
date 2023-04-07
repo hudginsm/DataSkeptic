@@ -5,7 +5,7 @@ body{
 header {
     font-family: Charmonman;
     font-size: 72px;
-    font-weight: 400;
+    font-weight: 700;
     text-align: center;
     color: white;
 }
@@ -46,7 +46,7 @@ p{
 }
 .chart{
     background-color: white;
-    width: 600px;
-    height: 300px;
+    width: 1200px;
+    height: 600px;
     margin: 0 auto;
 }
