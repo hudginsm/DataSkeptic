@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Charmonman">
+	<link rel='stylesheet' type='text/css' href='../index.css' />
+	<title>
+		The Data Skeptic
+	</title>
+</head>
+    <body>
+        <header>The Data Skeptic</header>
+        <hr/>
+        <h1>Data Visulaization With JavaScript</h1>
+		<h1>Chapter 1: Graphing Data</h1>
+        <p>
+			I got these from a book I am working through called, "Data Visualization With JavaScript" by Stephen A. Thomas, form NoStarchPress.
+        </p>
+		<h2>Charts from Chapter 1</h2>
+        <div id="simple_bar" class="chart" title="Data Visualization with JavaScript, Ch.1, Bar Chart"></div><br>
+        <div id="simple_bar2" class="chart" title="Data Visualization with JavaScript, Ch.1, Bar Chart 2"></div><br>
+		<div id="line" class="chart" title="Data Visualization with JavaScript, Ch.1, Line Chart"></div><br>
+		<div id="pie" class="chart" title="Data Visualization with JavaScript, Ch.1, Pie Chart"></div><br>
+		<div id="scatter" class="chart" title="Data Visualization with JavaScript, Ch.1, Scatter Chart"></div><br>
+		<h3>Hurricane Katrina 2005: Course and Wind Strenght</h3>
+		<div id="bubble" class="chart" title="Data Visualization with JavaScript, Ch.1, Bubble Chart"></div><br>
+		<div id="radar" class="chart" title="Data Visualization with JavaScript, Ch.1, Radar Chart"></div><br>
+        <script src="../libs/Flotr2-master/flotr2.min.js"></script>
+        <script>
+            var wins = [[[0,13],[1,11],[2,15],[3,15],[4,18],[5,21],[6,28]]];
+            var wins2 = [[[0,28]],[[1,28]],[[2,21]],[[3,20]],[[4,19]]];
+            var years = [[0,"2006"],[1,"2007"],[2,"2008"],[3,"2009"],[4,"2010"],[5,"2011"],[6,"2012"]];
+            var teams = [[0,"MCI"],[1,"MUN"],[2,"ARS"],[3,"TOT"],[4,"NEW"]];
+			var co2 = [
+				[ 1959, 315.97 ],
+				[ 1960, 316.91 ],
+				[ 1961, 317.64 ],
+				[ 1962, 318.45 ],
+				[ 1963, 318.99 ],
+				[ 1964, 319.62 ],
+				[ 1965, 320.04 ],
+				[ 1966, 321.38 ],
+				[ 1967, 322.16 ],
+				[ 1968, 323.04 ],
+				[ 1969, 324.62 ],
+				[ 1970, 325.68 ],
+				[ 1971, 326.32 ],
+				[ 1972, 327.45 ],
+				[ 1973, 329.68 ],
+				[ 1974, 330.18 ],
+				[ 1975, 331.08 ],
+				[ 1976, 332.05 ],
+				[ 1977, 333.78 ],
+				[ 1978, 335.41 ],
+				[ 1979, 336.78 ],
+				[ 1980, 338.68 ],
+				[ 1981, 340.10 ],
+				[ 1982, 341.44 ],
+				[ 1983, 343.03 ],
+				[ 1984, 344.58 ],
+				[ 1985, 346.04 ],
+				[ 1986, 347.39 ],
+				[ 1987, 349.16 ],
+				[ 1988, 351.56 ],
+				[ 1989, 353.07 ],
+				[ 1990, 354.35 ],
+				[ 1991, 355.57 ],
+				[ 1992, 356.38 ],
+				[ 1993, 357.07 ],
+				[ 1994, 358.82 ],
+				[ 1995, 360.80 ],
+				[ 1996, 362.59 ],
+				[ 1997, 363.71 ],
+				[ 1998, 366.65 ],
+				[ 1999, 368.33 ],
+				[ 2000, 369.52 ],
+				[ 2001, 371.13 ],
+				[ 2002, 373.22 ],
+				[ 2003, 375.77 ],
+				[ 2004, 377.49 ],
+				[ 2005, 379.80 ],
+				[ 2006, 381.90 ],
+				[ 2007, 383.77 ],
+				[ 2008, 385.59 ],
+				[ 2009, 387.37 ],
+				[ 2010, 389.85 ],
+				[ 2011, 391.62 ],
+			];
+			var temp = [
+				[ 1959,  0.0776 ],
+				[ 1960,  0.0280 ],
+				[ 1961,  0.1028 ],
+				[ 1962,  0.1289 ],
+				[ 1963,  0.1469 ],
+				[ 1964, -0.1171 ],
+				[ 1965, -0.0523 ],
+				[ 1966,  0.0063 ],
+				[ 1967,  0.0219 ],
+				[ 1968,  0.0093 ],
+				[ 1969,  0.1139 ],
+				[ 1970,  0.0684 ],
+				[ 1971, -0.0315 ],
+				[ 1972,  0.0558 ],
+				[ 1973,  0.1909 ],
+				[ 1974, -0.0527 ],
+				[ 1975,  0.0172 ],
+				[ 1976, -0.0753 ],
+				[ 1977,  0.1779 ],
+				[ 1978,  0.0990 ],
+				[ 1979,  0.1856 ],
+				[ 1980,  0.2301 ],
+				[ 1981,  0.2701 ],
+				[ 1982,  0.1521 ],
+				[ 1983,  0.3170 ],
+				[ 1984,  0.1259 ],
+				[ 1985,  0.1065 ],
+				[ 1986,  0.1956 ],
+				[ 1987,  0.3293 ],
+				[ 1988,  0.3407 ],
+				[ 1989,  0.2659 ],
+				[ 1990,  0.3988 ],
+				[ 1991,  0.3757 ],
+				[ 1992,  0.2323 ],
+				[ 1993,  0.2621 ],
+				[ 1994,  0.3245 ],
+				[ 1995,  0.4473 ],
+				[ 1996,  0.3170 ],
+				[ 1997,  0.5117 ],
+				[ 1998,  0.6286 ],
+				[ 1999,  0.4525 ],
+				[ 2000,  0.4264 ],
+				[ 2001,  0.5496 ],
+				[ 2002,  0.6121 ],
+				[ 2003,  0.6211 ],
+				[ 2004,  0.5779 ],
+				[ 2005,  0.6510 ],
+				[ 2006,  0.5977 ],
+				[ 2007,  0.5923 ],
+				[ 2008,  0.5134 ],
+				[ 2009,  0.5985 ],
+				[ 2010,  0.6621 ],
+				[ 2011,  0.5362 ],
+				];
+			var zero = [];
+			for (var yr=1959; yr<2012; yr++) { zero.push( [yr, 0] ); };
+			var fractions = [
+				{data: [[0,22.4]], label: "Extreme Poverty"},
+				{data: [[1,77.6]]}
+			];
+			var pacific_data = [
+				{  country: "Australia",       spending:  9.1,  life: 81.8  },
+				{  country: "New Zealand",     spending: 10.1,  life: 81.0  },
+			];
+			var europe_data = [
+				{  country: "Austria",         spending: 11.0,  life: 80.7  },
+				{  country: "Belgium",         spending: 10.5,  life: 80.3  },
+				{  country: "Czech Republic",  spending:  7.5,  life: 77.7  },
+				{  country: "Denmark",         spending: 11.1,  life: 79.3  },
+				{  country: "Estonia",         spending:  6.3,  life: 75.6  },
+				{  country: "Finland",         spending:  8.9,  life: 80.2  },
+				{  country: "France",          spending: 11.6,  life: 81.3  },
+				{  country: "Germany",         spending: 11.6,  life: 80.5  },
+				{  country: "Greece",          spending: 10.2,  life: 80.6  },
+				{  country: "Hungary",         spending:  7.8,  life: 74.3  },
+				{  country: "Iceland",         spending:  9.3,  life: 81.5  },
+				{  country: "Ireland",         spending:  9.2,  life: 81.0  },
+				{  country: "Italy",           spending:  9.3,  life: 82.0  },
+				{  country: "Luxembourg",      spending:  7.9,  life: 80.7  },
+				{  country: "Netherlands",     spending: 12.0,  life: 80.8  },
+				{  country: "Norway",          spending:  9.4,  life: 81.2  },
+				{  country: "Poland",          spending:  7.0,  life: 76.3  },
+				{  country: "Portugal",        spending: 10.7,  life: 79.8  },
+				{  country: "Slovak Republic", spending:  9.0,  life: 75.2  },
+				{  country: "Slovenia",        spending:  9.0,  life: 79.5  },
+				{  country: "Spain",           spending:  9.6,  life: 82.2  },
+				{  country: "Sweden",          spending:  9.6,  life: 81.5  },
+				{  country: "Switzerland",     spending: 11.4,  life: 82.6  },
+				{  country: "Turkey",          spending:  6.1,  life: 74.3  },
+				{  country: "United Kingdom",  spending:  9.6,  life: 80.6  },
+			];
+			var americas_data = [
+				{  country: "Canada",          spending: 11.4,  life: 80.8  },
+				{  country: "Chile",           spending:  8.0,  life: 79.0  },
+				{  country: "Mexico",          spending:  6.2,  life: 75.5  },
+				{  country: "United States",   spending: 17.6,  life: 78.7  },
+			];
+			var mideast_data = [
+				{  country: "Israel",          spending:  7.5,  life: 81.7  },
+			];
+			var asia_data = [
+				{  country: "Japan",           spending:  9.5,  life: 83.0  },
+				{  country: "Korea",           spending:  7.1,  life: 80.7  },
+			];
+			var us_data = [
+				{  country: "United States",   spending: 17.6,  life: 78.7  },
+			];
+			var pacific=[], europe=[], americas=[], mideast=[], asia=[], us=[];
+			for (i = 0; i < pacific_data.length; i++) {
+				pacific.push([ pacific_data[i].spending, pacific_data[i].life ]);
+			}
+			for (i = 0; i < europe_data.length; i++) {
+				europe.push([ europe_data[i].spending, europe_data[i].life ]);
+			}
+			for (i = 0; i < americas_data.length; i++) {
+				americas.push([ americas_data[i].spending, americas_data[i].life ]);
+			}
+			for (i = 0; i < mideast_data.length; i++) {
+				mideast.push([ mideast_data[i].spending, mideast_data[i].life ]);
+			}
+			for (i = 0; i < asia_data.length; i++) {
+				asia.push([ asia_data[i].spending, asia_data[i].life ]);
+			}
+			for (i = 0; i < us_data.length; i++) {
+				us.push([ us_data[i].spending, us_data[i].life ]);
+			}
+			var katrina = [
+				{ north: 23.2, west: 75.5, wind:  35 },
+				{ north: 24.0, west: 76.4, wind:  35 },
+				{ north: 25.2, west: 77.0, wind:  45 },
+				{ north: 26.0, west: 77.6, wind:  45 },
+				{ north: 26.2, west: 78.7, wind:  50 },
+				{ north: 26.1, west: 79.9, wind:  75 },
+				{ north: 25.5, west: 80.7, wind:  75 },
+				{ north: 25.1, west: 82.2, wind: 100 },
+				{ north: 24.8, west: 82.9, wind: 100 },
+				{ north: 24.4, west: 84.0, wind: 110 },
+				{ north: 24.4, west: 84.6, wind: 115 },
+				{ north: 25.1, west: 86.8, wind: 145 },
+				{ north: 25.7, west: 87.7, wind: 160 },
+				{ north: 26.5, west: 88.6, wind: 175 },
+				{ north: 27.9, west: 89.5, wind: 160 },
+				{ north: 29.7, west: 89.6, wind: 135 },
+				{ north: 30.8, west: 89.6, wind: 105 },
+				{ north: 31.9, west: 89.6, wind:  75 },
+				{ north: 32.9, west: 88.9, wind:  65 },
+				{ north: 34.7, west: 88.4, wind:  50 },
+			];
+			var get_points = function(source_array, filter_function) {
+				var result = [];
+				for (var i=0; i<source_array.length; i++) {
+					if ( (typeof filter_function === "undefined")
+					|| (typeof filter_function !== "function")
+					|| filter_function(source_array[i]) ) {
+						result.push([
+							source_array[i].west * -1,
+							source_array[i].north,
+							source_array[i].wind,
+						]);
+					}
+				}
+				return result;
+			};
+			window.onload = function() {
+                Flotr.draw(
+                    document.getElementById("simple_bar"),
+                    wins,
+                    {
+                        title: "Manchester City Wins",
+                        colors: ["#89AFD2"],
+                        bars: {show: true, barWidth: 0.5, shadowSize: 0, fillOpacity: 1, lineWidth: 0},
+                        yaxis: {min: 0, tickDecimals: 0},
+                        xaxis: {ticks: years},
+                        grid: {horizontalLines: false, verticalLines: false}
+                    }
+                );
+                Flotr.draw(
+                    document.getElementById("simple_bar2"),
+                    wins2,
+                    {
+                        title: "Premier League Wins (2011-2012)",
+                        colors: ["#89AFD2","#009933","#DF021D","#0E204B","#E67840"],
+                        bars: {show: true, barWidth: 0.5, shadowSize: 0, fillOpacity: 1, lineWidth: 0},
+                        yaxis: {min: 0, tickDecimals: 0},
+                        xaxis: {ticks: teams},
+                        grid: {horizontalLines: false, verticalLines: false}
+                    }
+                );
+				Flotr.draw(
+					document.getElementById("line"),
+					[
+						{data: zero, label: "20<sup>th</sup>-Century Baseline Temperature", lines: {show: true, lineWidth: 1}, shadowSize: 0, color: "#545454"},
+						{data: temp, label: "Yearly Temperature Difference (°C)", lines: {show: true}},
+						{data: co2, label: "CO<sub>2</sub> Concentration (ppm)", yaxis: 2, lines: {show: true}}
+					],
+					{
+						title: "Global Temperature and CO<sub>2</sub> Concentration (NOAA Data)",
+						grid: {horizontalLines: false, verticalLines: false},
+						yaxis: {min: -0.15, max: 0.69, tickFormatter: function(val) { return val+" °C"; }},
+						y2axis: {min:300, max:400}
+					}
+				);
+				Flotr.draw(
+					document.getElementById("pie"),
+					fractions,
+					{
+						title: "How Much of the World Lives on $1.25/Day?",
+						pie: {show: true},
+						yaxis: {showLabels: false},
+						xaxis: {showLabels: false},
+						grid: {horizontalLines: false, verticalLines: false}
+					}
+				);
+				Flotr.draw(
+					document.getElementById("scatter"),
+					[
+						{data: pacific, label: "Pacific", points: { show:true }},
+                        {data: europe, label: "Europe", points: { show: true }},
+                        {data: americas, label: "Americas", points: { show: true }},
+                        {data: mideast, label: "Middle East", points: { show: true }},
+                        {data: asia, label: "Aisa", points: { show: true }},
+                        {data: us, label: "United States", points: { show: true }},
+					],
+					{
+						title: "Life Expectancy vs. Health Care Spending",
+						subtitle: "(by Country, 2010 OECD data)",
+						xaxis: {min: 5, max: 25, tickDecimals: 0, title: "Spending as Percntage of GDP", tickFormatter: function (val) {return val+"%"}},
+						yaxis: {min: 70, max: 85, tickDecimals: 0, title: "Years"},
+						legend: {position: "ne"}
+                    }
+				);
+				Flotr.draw(
+					document.getElementById("bubble"),
+					[
+						{
+							data: get_points(
+								katrina,
+								function(obs){
+									return (obs.wind < 39);
+								}
+							),
+							color: "#74add1",
+							bubbles: {show: true, baseRadius: 0.3}
+						},{
+							data: get_points(
+								katrina,
+								function(obs){
+									return (obs.wind >= 39) && (obs.wind < 74);
+								}
+							),
+							color: "#abd9e9",
+							bubbles: {show: true, baseRadius: 0.3}
+						},{
+							data: get_points(
+								katrina,
+								function(obs){
+									return (obs.wind >= 74) && (obs.wind < 95);
+								}
+							),
+							color: "#ffffbf",
+							label: "Category 1",
+							bubbles: {show: true, baseRadius: 0.3}
+						},{
+							data: get_points(
+								katrina,
+								function(obs){
+									return (obs.wind >= 95) && (obs.wind < 110);
+								}
+							),
+							color: "#fee090",
+							label: "Category 2",
+							bubbles: {show: true, baseRadius: 0.3}
+						},{
+							data: get_points(
+								katrina,
+								function(obs){
+									return (obs.wind >= 110) && (obs.wind < 130);
+								}
+							),
+							color: "#fdae61",
+							label: "Category 3",
+							bubbles: {show: true, baseRadius: 0.3}
+						},{
+							data: get_points(
+								katrina,
+								function(obs){
+									return (obs.wind >= 130) && (obs.wind < 157);
+								}
+							),
+							color: "#f46d43",
+							label: "Category 4",
+							bubbles: {show: true, baseRadius: 0.3}
+						},{
+							data: get_points(
+								katrina,
+								function(obs){
+									return (obs.wind >= 157);
+								}
+							),
+							color: "#d73027",
+							label: "Category 5",
+							bubbles: {show: true, baseRadius: 0.3}
+						}
+					],
+					{
+						grid: {
+							backgroundImage: "img/gulf.png",
+							horizontalLines: false,
+							verticalLines: false
+						},
+						yaxis: {showLabels: false, min: 23.607, max: 33.657},
+						xaxis: {showLabels: false, min: -94.298, max: -77.586},
+						legend: {position: "sw",  backgroundOpacity: 0}
+					}
+				);
+			};
+
+        </script>
+
+        <p>hi</p>
+    </body>
+</html>
