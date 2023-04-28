@@ -444,15 +444,16 @@
 						player_data("Chris Bosh"),
 						player_data("Shane Battier"),
 						player_data("LeBron James"),
-						player_data("Dwyane Wade"),
-						player_data("Marcio Chalmers")
+						player_data("Dwayne Wade"),
+						player_data("Mario Chalmers"),
 					],
 					{
-						title: "2011/12 Miami Heat Starting Lineup - Contribution to Team Total",
-						radar: {show: true},
-						grid: {circular: true},
-						xaxis: {ticks: labels},
-						yaxis: {showLabels: false, min: 0, max: 33}
+						title:  "2011/12 Miami Heat Starting Lineup - Contribution to Team Total",
+						radar:  { show: true, radiusRatio: 0.9},
+						grid:   { circular: true, },
+						xaxis:  { ticks: labels, },
+						yaxis:  { showLabels: false, min:0, max: 33, },
+						legend: { position: "nw" },
 					}
 				);
 			};
